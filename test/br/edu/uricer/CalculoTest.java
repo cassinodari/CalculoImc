@@ -12,9 +12,9 @@ public class CalculoTest {
         //Homem abaixo do peso
         @Test
          public void testHomemAbaixoDoPeso(){
-            Calculo calculo = new Calculo("M", 1.90, 50);
+            Calculo calculo = new Calculo(Calculo.MASCULINO, 1.90, 50);
             
-            int esperado = 0;
+            int esperado = Calculo.ABAIXO_DO_PESO;
             int resultado = calculo.calcular();
             
             assertEquals(esperado, resultado); 
@@ -23,9 +23,9 @@ public class CalculoTest {
         //Homem no peso ideal         
          @Test
          public void testHomemNoPesoIdeal(){
-            Calculo calculo = new Calculo("M", 1.70, 70);
+            Calculo calculo = new Calculo(Calculo.MASCULINO, 1.70, 70);
             
-            int esperado = 1;
+            int esperado = Calculo.PESO_IDEAL;
             int resultado = calculo.calcular();
             
             assertEquals(esperado, resultado);
@@ -34,9 +34,9 @@ public class CalculoTest {
         //Homem acima do peso
          @Test
          public void testHomemAcimaDoPeso(){
-            Calculo calculo = new Calculo("M", 1.50, 90);
+            Calculo calculo = new Calculo(Calculo.MASCULINO, 1.50, 90);
             
-            int esperado = 2;
+            int esperado = Calculo.ACIMA_DO_PESO;
             int resultado = calculo.calcular();
             
             assertEquals(esperado, resultado);
@@ -45,9 +45,9 @@ public class CalculoTest {
         //Mulher abaixo do peso
          @Test
          public void testMulherAbaixoDoPeso(){
-            Calculo calculo = new Calculo("F", 1.90, 40);
+            Calculo calculo = new Calculo(Calculo.FEMININO, 1.90, 40);
             
-            int esperado = 0;
+            int esperado = Calculo.ABAIXO_DO_PESO;
             int resultado = calculo.calcular();
             
             assertEquals(esperado, resultado);
@@ -56,9 +56,9 @@ public class CalculoTest {
          //Mulher no peso ideal
          @Test
          public void testMulherNoPesoIdeal(){
-            Calculo calculo = new Calculo("F", 1.70, 65);
+            Calculo calculo = new Calculo(Calculo.FEMININO, 1.70, 65);
             
-            int esperado = 1;
+            int esperado = Calculo.PESO_IDEAL;
             int resultado = calculo.calcular();
             
             assertEquals(esperado, resultado);
@@ -67,13 +67,12 @@ public class CalculoTest {
         //Mulher acima do peso
          @Test
          public void testMulherAcimaDoPeso(){
-            Calculo calculo = new Calculo("F", 1.50, 90);
+            Calculo calculo = new Calculo(Calculo.FEMININO, 1.50, 90);
             
-            int esperado = 2;
+            int esperado = Calculo.ACIMA_DO_PESO;
             int resultado = calculo.calcular();
             
             assertEquals(esperado, resultado);
         }
-       
-    
+     
 }
